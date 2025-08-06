@@ -47,3 +47,7 @@ The goal of this project is to enhance public or workplace safety by detecting p
    - If a threat is identified (e.g., shouting, fighting, or dangerous keywords), the system logs it and sends an alert
 
 ---
+![Live Detection](https://github.com/user-attachments/assets/220ac99c-6b8b-473f-bfa1-60467c681848)
+![Live Detection 2](https://github.com/user-attachments/assets/47445caa-0b52-4664-b0bc-2a1ec7f8a3bd)
+
+
