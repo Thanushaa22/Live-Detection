@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Live_Event Recognition</title>
+</head>
+<style>
+    body {  
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://ctad.ir/wp-content/uploads/2018/02/1-2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        margin-top: 200px;
+        padding: 20px;
+        text-align: center;
+        background-color:transparent;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color:white;
+    }
+
+    .custom-file-upload {
+        display: inline-block;
+        background-color: #3498db;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .custom-file-upload input[type="file"] {
+        display: none;
+    }
+
+    .custom-file-upload i {
+        margin-right: 5px;
+    }
+
+    .custom-file-upload:hover {
+        background-color: #2980b9;
+    }
+
+    button {
+        display: block;
+        margin: 20px auto;
+        background-color: #e74c3c;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #c0392b;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+    }
+
+</style>
+<body>
+    <div class="container">
+        <h1>Live_Event Recognition</h1>
+        <form id="audio-form" enctype="multipart/form-data">
+            <label for="audio-upload" class="custom-file-upload">
+                <input type="file" id="audio-upload" name="audio" accept=".wav, .mp3">
+                <i class="fas fa-cloud-upload-alt"></i> Choose Audio File
+            </label>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#audio-form').submit(function(e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+                $.ajax({
+                    url: '/predict',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        if ('emotion' in data) {
+                            $('#result').text('Predicted Gun Shoot : ' + data.emotion);
+                        } else if ('error' in data) {
+                            $('#result').text('Error: ' + data.error);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

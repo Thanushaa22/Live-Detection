@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live_Event </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6u9p37mCxCDsdwIKt4lUMPU1MGFMlX5rnytoE57SI7oyPWzDQJFr8eCUumz5_Z0wuDpM&usqp=CAU'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background-color: transparent;
+            backdrop-filter: blur(30px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 2rem;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .form-container h2 {
+            color: #fff;
+            margin-top: 0;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-container button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .switch-form {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container" id="login-form">
+        <h2>Login </h2>
+        <form>
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p class="switch-form">Don't have an account? <a href="#" onclick="switchForm('register-form')">Register here</a></p>
+    </div>
+
+    <div class="form-container" id="register-form" style="display: none;">
+        <h2>Register </h2>
+        <form>
+            <input type="text" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+        <p class="switch-form">Already have an account? <a href="#" onclick="switchForm('login-form')">Login here</a></p>
+    </div>
+
+    <script>
+        function switchForm(formId) {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById(formId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>

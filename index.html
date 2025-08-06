@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live_Event  Recognition</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-family: sans-serif;
+    }
+    body{
+        width: 100%;
+        min-height:100vh;
+        background:black;
+        background: url('https://pubs.asha.org/cms/asset/0b752f35-1504-4083-bd2f-32c2e5d02f2d/jslhr-20-00153morgan_featimage.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+    header{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 20px;
+        color: white;
+    }
+    nav li{
+        display: inline-block;
+        margin: 10px 20px;
+        font-weight: 600
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+</style>
+<body>
+    <header>
+        <h1>LOGO</h1>
+        <nav>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            
+        </nav>
+    </header>
+</body>
+</html>
